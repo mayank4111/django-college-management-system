@@ -30,3 +30,6 @@ This is a Django-based web application that manages college departments.
 ## Author
 
 Mayank Kumar
+
+
+Updated documentation
