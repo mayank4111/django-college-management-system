@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Department Details</h2>
+
+<a href="{% url 'add_department' %}" class="btn btn-add">
+    Add Department
+</a>
+
+<br><br>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Department Name</th>
+        <th>HOD</th>
+        <th>Total Staff</th>
+        <th>Total Students</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for dept in departments %}
+    <tr>
+        <td>{{ dept.dept_id }}</td>
+        <td>{{ dept.dept_name }}</td>
+        <td>{{ dept.hod }}</td>
+        <td>{{ dept.total_staff }}</td>
+        <td>{{ dept.total_student }}</td>
+        <td>
+            <a href="{% url 'edit_department' dept.dept_id %}" class="btn btn-edit">
+                Edit
+            </a>
+            |
+            <a href="{% url 'delete_department' dept.dept_id %}"
+               onclick="return confirm('Are you sure you want to delete this department?')"
+               style="color:red;">
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
