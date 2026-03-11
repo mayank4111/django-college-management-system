@@ -17,6 +17,7 @@ class AddDepartmentView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
     model = Dept_Details
     form_class = DeptForm
     template_name = 'Department/add_department.html'
+
     success_url = reverse_lazy('department_list')
     permission_required = 'Department.add_dept_details'
 
